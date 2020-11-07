@@ -1,0 +1,13 @@
+<h1> Worlds Best Recipes </h1>
+
+<ul>
+    {%for recipe in recipes%}
+    <li><strong><a href="/recipe/{{recipe.id}}/">{{recipe.title}}</a></strong> 
+        
+        - Written by {{recipe.author.name}}
+    
+    </li>
+    {% endfor %}
+    
+</ul>
+
