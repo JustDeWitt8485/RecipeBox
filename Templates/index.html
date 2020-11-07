@@ -2,10 +2,8 @@
 
 <ul>
     {%for recipe in recipes%}
-    <li><strong><a href="/recipe/{{recipe.id}}/">{{recipe.title}}</a></strong> 
-        
-        - Written by {{recipe.author.name}}
-    
+    <li>
+        <strong><a href="/recipes/{{ recipe.id }}/">{{ recipe.title }}</a></strong> 
     </li>
     {% endfor %}
     

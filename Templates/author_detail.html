@@ -1,0 +1,8 @@
+<h1>{{ author.name }}</h1>
+<h2>{{ author.email }}</h2>
+
+<ul>
+    {% for item in author.recipes_set.all %}
+        <li><a href= "/recipes/{{ item.id }}">{{ item.title }}</a></li>
+    {% endfor %}
+</ul>

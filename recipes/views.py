@@ -18,3 +18,10 @@ def recipe_detail(request, recipe_id):
     return render(
         request, "recipe_detail.html", {"recipe": the_recipe}
     )
+
+
+def author_detail(request, author_id):
+    the_author = Author.objects.get(id=author_id)
+    return render(
+        request, "author_detail.html", {"author": the_author}
+    )
