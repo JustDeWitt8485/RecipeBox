@@ -1,7 +1,13 @@
 <h1> Worlds Best Recipes </h1>
 
+<a href="/author/add/">Add Author</a>
+<br>
+<a href="/recipes/add/">Add Recipe</a>
+
+
 <ul>
     {%for recipe in recipes%}
+
     <li>
         <strong><a href="/recipes/{{ recipe.id }}/">{{ recipe.title }}</a></strong> 
     </li>
