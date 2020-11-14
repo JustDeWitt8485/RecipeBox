@@ -1,17 +1,81 @@
-<h1> Worlds Best Recipes </h1>
+<!DOCTYPE html>
+<html lang="en">
 
-<a href="/author/add/">Add Author</a>
-<br>
-<a href="/recipes/add/">Add Recipe</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Recipe Box</title>
+</head>
+
+<div class="fixed-top">
+    <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+            <h5 class="text-white h4">Collapsed content</h5>
+            <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+    </div>
+    <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent"
+            aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            {% if request.user.is_authenticated %}
+                <button type="button" class="btn btn-outline-danger">
+                    <a href="{% url 'logout' %}" class="text-body">Log Out</a></button>
+            {% endif %}   
+        </button>
+    </nav>
+</div>
+
+<body class="p-3 mb-2 bg-success text-white">
+
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <br>
+            <br>
+            <h2 class="mt-2">Worlds Best Recipes!</h2>
+            <hr class="mt-0 mb-4">
+
+            {% if request.user.is_authenticated %}
+
+            <h1>Greetings, {{ request.user.username }}</h1>
+
+            {% endif %}
 
 
-<ul>
-    {%for recipe in recipes%}
+            <h4>
 
-    <li>
-        <strong><a href="/recipes/{{ recipe.id }}/">{{ recipe.title }}</a></strong> 
-    </li>
-    {% endfor %}
-    
-</ul>
+                <a href="/author/add/" class="text-body">Add Author</a>
+                <br>
+                <a href="/recipes/add/" class="text-body">Add Recipe</a>
 
+            </h4>
+
+
+            <div class="card" style="width: 18rem;">
+                <ol class="list-group list-group-flush">
+                    {%for recipe in recipes%}
+
+                    <li class="list-group-item">
+                        <strong><a href="/recipes/{{ recipe.id }}/" class="text-dark">{{ recipe.title }}</a></strong>
+                    </li>
+
+                    {% endfor %}
+
+                </ol>
+            </div>
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+                integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+                integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
+                crossorigin="anonymous"></script>
+
+</body>
+
+</html>
