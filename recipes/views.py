@@ -53,8 +53,8 @@ def author_detail(request, author_id):
     )
 
 
+@login_required(login_url='loginpage')
 @staff_member_required
-@login_required
 def add_author(request):
     html = 'generic_form.html'
     if request.method == 'POST':
